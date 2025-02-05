@@ -8,7 +8,7 @@ repository = "https://github.com/bitflags/bitflags-derive"
 description = "bitflags-aware #[derive] macros."
 keywords = ["bit", "bitmask", "bitflags", "flags"]
 categories = ["no-std"]
-edition = "2024"
+edition = "2021"
 exclude = ["/tests", "/.github"]
 
 [dependencies.bitflags-derive-macros]
