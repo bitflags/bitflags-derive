@@ -22,18 +22,27 @@ extern crate bitflags;
 #[macro_use]
 extern crate bitflags_derive;
 
+# fn main() -> Result<(), bitflags::parser::ParseError> {
 bitflags! {
-    #[derive(FlagsDebug)]
-    struct Flags: u8 {
+    #[derive(FlagsDisplay, FlagsFromStr)]
+    struct MyFlags: u8 {
         const A = 1;
         const B = 1 << 1;
         const C = 1 << 2;
     }
 }
-# fn main() {}
+
+let flags = "A | B".parse::<MyFlags>()?;
+
+assert_eq!("A | B", flags.to_string());
+# Ok(())
+# }
 ```
+
+These derives work for any type that implements the [`Flags`](https://docs.rs/bitflags/latest/bitflags/trait.Flags.html) trait.
 */
 
+#![no_std]
 #![deny(missing_docs)]
 
 #[doc(inline)]
