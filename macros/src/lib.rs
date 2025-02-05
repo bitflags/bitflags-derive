@@ -16,7 +16,7 @@ mod debug;
 /**
 Derive [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) for a flags type.
 
-This macro will use [`https://docs.rs/bitflags/latest/bitflags/parser/fn.to_writer.html`] to
+This macro will use [`to_writer`](https://docs.rs/bitflags/latest/bitflags/parser/fn.to_writer.html) to
 format flags values.
 */
 #[proc_macro_derive(FlagsDebug)]
