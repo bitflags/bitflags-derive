@@ -1,0 +1,36 @@
+name: ci
+
+on: [push, pull_request]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: "test"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+    - name: Install Rust toolchain
+      run: rustup default nightly
+
+    - name: Install cargo-hack
+      run: cargo install cargo-hack
+
+    - name: All
+      run: cargo test --all-features
+
+    - name: Docs
+      run: cargo doc --all-features
+
+    - name: Build powerset
+      run: cargo hack build --feature-powerset --lib
+
+    - name: Test powerset
+      working-directory: tests/ui
+      run: cargo hack test --feature-powerset --lib
+
+    - name: Minimal versions
+      working-directory: tests/ui
+      run: cargo hack test --feature-powerset --lib -Z minimal-versions

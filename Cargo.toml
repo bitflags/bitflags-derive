@@ -1,0 +1,25 @@
+[package]
+name = "bitflags-derive"
+version = "0.0.1"
+authors = ["bitflags contributors"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/bitflags/bitflags-derive"
+description = "bitflags-aware #[derive] macros."
+keywords = ["bit", "bitmask", "bitflags", "flags"]
+categories = ["no-std"]
+edition = "2024"
+exclude = ["/tests", "/.github"]
+
+[dependencies.bitflags-derive-macros]
+path = "macros"
+version = "0.0.1"
+
+[dependencies.bitflags]
+version = "2"
+
+[workspace]
+members = [
+    "macros",
+    "tests/ui",
+]
