@@ -10,7 +10,7 @@ Add `bitflags-derive` to your `Cargo.toml` alongside `bitflags`:
 
 ```toml
 [dependencies.bitflags-derive]
-version = "0.0.2"
+version = "0.0.3"
 
 [dependencies.bitflags]
 version = "2"
