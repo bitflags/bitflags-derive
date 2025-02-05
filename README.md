@@ -26,16 +26,17 @@ extern crate bitflags;
 extern crate bitflags_derive;
 
 bitflags! {
-    #[derive(FlagsDebug)]
-    struct Flags: u8 {
+    #[derive(FlagsDisplay, FlagsFromStr)]
+    struct MyFlags: u8 {
         const A = 1;
         const B = 1 << 1;
         const C = 1 << 2;
     }
 }
 
-// The regular `#[derive(Debug)]` would produce "Flags(A | B)" here
-assert_eq!("A | B", format!("{:?}", Flags::A | Flags::B));
+let flags = "A | B".parse::<MyFlags>()?;
+
+assert_eq!("A | B", flags.to_string());
 ```
 
 See [the docs](https://docs.rs/bitflags-derive) for details on all supported attributes.
