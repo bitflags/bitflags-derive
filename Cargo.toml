@@ -18,6 +18,12 @@ version = "0.0.1"
 [dependencies.bitflags]
 version = "2"
 
+# Adding new library support to `bitflags-derive`:
+#
+# 1. Add an optional dependency here
+# 2. Add support in a module in `macros`
+# 3. Add some tests in `tests/ui`
+
 [workspace]
 members = [
     "macros",
