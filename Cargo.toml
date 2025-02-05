@@ -1,6 +1,6 @@
 [package]
 name = "bitflags-derive"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["bitflags contributors"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
@@ -13,7 +13,7 @@ exclude = ["/tests", "/.github"]
 
 [dependencies.bitflags-derive-macros]
 path = "macros"
-version = "0.0.1"
+version = "0.0.2"
 
 [dependencies.bitflags]
 version = "2"
