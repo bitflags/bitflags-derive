@@ -15,6 +15,9 @@ mod debug;
 mod display;
 mod from_str;
 
+#[cfg(feature = "serde")]
+mod serde;
+
 /**
 Derive [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html).
 
@@ -46,6 +49,26 @@ parse flags values.
 #[proc_macro_derive(FlagsFromStr)]
 pub fn derive_bitflags_from_str(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     from_str::expand(syn::parse_macro_input!(item as syn::DeriveInput)).unwrap_or_compile_error()
+}
+
+/**
+Derive [`Serialize`](https://docs.rs/serde/latest/serde/trait.Serialize.html).
+*/
+#[cfg(feature = "serde")]
+#[proc_macro_derive(FlagsSerialize)]
+pub fn derive_bitflags_serialize(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    serde::serialize::expand(syn::parse_macro_input!(item as syn::DeriveInput))
+        .unwrap_or_compile_error()
+}
+
+/**
+Derive [`Deserialize`](https://docs.rs/serde/latest/serde/trait.Deserialize.html).
+*/
+#[cfg(feature = "serde")]
+#[proc_macro_derive(FlagsDeserialize)]
+pub fn derive_bitflags_deserialize(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    serde::deserialize::expand(syn::parse_macro_input!(item as syn::DeriveInput))
+        .unwrap_or_compile_error()
 }
 
 trait ResultExt {
