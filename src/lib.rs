@@ -50,6 +50,9 @@ pub use bitflags_derive_macros::*;
 
 #[doc(hidden)]
 pub mod __private {
+    #[cfg(feature = "serde")]
+    pub mod serde;
+
     pub use bitflags;
     pub use core;
 }

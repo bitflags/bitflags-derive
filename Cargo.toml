@@ -11,12 +11,19 @@ categories = ["no-std"]
 edition = "2021"
 exclude = ["/tests", "/.github"]
 
+[features]
+serde = ["dep:serde", "bitflags-derive-macros/serde"]
+
 [dependencies.bitflags-derive-macros]
 path = "macros"
 version = "0.0.3"
 
 [dependencies.bitflags]
 version = "2"
+
+[dependencies.serde]
+version = "1"
+optional = true
 
 # Adding new library support to `bitflags-derive`:
 #
