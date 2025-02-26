@@ -1,6 +1,6 @@
 [package]
 name = "bitflags-derive"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["bitflags contributors"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
@@ -16,7 +16,7 @@ serde = ["dep:serde", "bitflags-derive-macros/serde"]
 
 [dependencies.bitflags-derive-macros]
 path = "macros"
-version = "0.0.3"
+version = "0.0.4"
 
 [dependencies.bitflags]
 version = "2"
